@@ -9,7 +9,7 @@ test which method is better for concurrent in tornado
 + 减少数据访问次数，建索引
 
 ### 疑惑
-+ tornado异步编码方式（用@tornado.web.asynchronous，@tornado.gen.coroutine） 比 不用@@tornado.web.asynchronous，@tornado.gen.coroutine慢
++ tornado异步编码方式（用@tornado.web.asynchronous，@tornado.gen.coroutine） 比 不用(@tornado.web.asynchronous，@tornado.gen.coroutine) 慢? 使用方式不对？ 待排查？
 + 使用 gevent+ tornado（多进程 + 协程 ）性能没有提升？
 
 ### 其他
