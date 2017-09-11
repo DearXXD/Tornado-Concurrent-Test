@@ -1,6 +1,6 @@
 # Tornado-Concurrent-Test
 test which method is better for concurrent in tornado
-### 分别以多进程（multiple），tornado异步编程（asynchronous），celery的方式测试（ce想要用celery处理数据库io），正常方式（normal）,gevent+multiple process
+### 分别以多进程（multiple），tornado异步方式（asynchronous），celery的方式测试（ce，想要用celery处理数据库io），正常方式（normal）,gevent+multiple process（test_gevent）
 ### 思路
 + 协程
 + 多进程
