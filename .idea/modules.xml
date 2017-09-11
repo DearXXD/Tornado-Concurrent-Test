@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file:$USER_HOME$//$PROJECT_DIR$/.idea/Tornado.iml" filepath="$PROJECT_DIR$/.idea/Tornado.iml" />
+      <module fileurl="file:$USER_HOME$/$PROJECT_DIR$/.idea/Tornado.iml" filepath="home/lyc/Diy/Tornado/.idea/Tornado.iml" />
     </modules>
   </component>
 </project>

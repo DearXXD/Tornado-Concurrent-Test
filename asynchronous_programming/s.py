@@ -20,7 +20,7 @@ class LoginHandler(tornado.web.RequestHandler):
     @tornado.gen.coroutine
     def get(self):
         res = yield self.search()
-        self.write("username %s " % res)
+        self.write("success! username %s " % res)
         self.finish()
 
     @run_on_executor
@@ -42,7 +42,7 @@ class CustomApplication(tornado.web.Application):
 
 if __name__ == "__main__":
     # http_server = tornado.httpserver.HTTPServer(CustomApplication())
-    # http_server.listen(8888)
+    # http_server.listen(8080)
     # tornado.ioloop.IOLoop.instance().start()
 
 

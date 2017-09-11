@@ -17,19 +17,8 @@ class login(tornado.web.RequestHandler):
         username = str(random.randint(0,1000))
         sql = 'SELECT id FROM user where username=%s and password=123456' 
         cursor = self.application.db.get(sql,username)
-        print cursor 
-        while (yield cursor.fetch_next):
-            document = cursor.next_object()
-            print document
-            # a = yield b
-            # print a
-            # print self.application.db.get(sql,username)
-            # self.write(dict(document)
-            #         self.write('11111')
-            #     else:
-            #         self.write('2222')
+        self.write(cursor)
 
-            # def search(self,)
 
 
 class CustomApplication(tornado.web.Application):
@@ -38,7 +27,7 @@ class CustomApplication(tornado.web.Application):
             (r'/login',login),
         ]
         super(CustomApplication, self).__init__(handles)
-        self.db = torndb.Connection('127.0.0.1:3306', 'test_t' , user='root', password='8782') 
+        self.db = torndb.Connection('127.0.0.1:3306', 'test_t' , user='root', password='8782')
 
 
 if __name__ == "__main__":

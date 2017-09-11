@@ -1,7 +1,6 @@
 import torndb
 import random
 import tornado.web
-# db = torndb.Connection(host='127.0.0.1', port=3306, user='root', passwd="8782",db='test_t') 
 
 class login(tornado.web.RequestHandler):
 	def get(self):
