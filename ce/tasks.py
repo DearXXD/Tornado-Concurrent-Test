@@ -10,7 +10,7 @@ db = torndb.Connection('127.0.0.1:3306', 'test_t' , user='root', password='8782'
 
  
 @celery.task  
-def sleep(a):  
+def login_t():
     username = str(random.randint(0,1000))
     sql = 'SELECT id FROM user where username=%s and password=123456' 
     cursor = db.get(sql,username)

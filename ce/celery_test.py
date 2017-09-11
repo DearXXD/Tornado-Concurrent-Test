@@ -10,7 +10,7 @@ import tornado.gen
 from tornado.options import define, options
 
 import tcelery, tasks  
-from tasks import sleep
+from tasks import login_t
 
 define("port", default=8000, help="run on the given port", type=int)
 
@@ -25,9 +25,11 @@ class SleepHandler(tornado.web.RequestHandler):
     @tornado.web.asynchronous
     @tornado.gen.coroutine
     def get(self):
-        sleep.apply_async(args=[1],callback=self.on_result)
+        # sleep.apply_async(args=[1],callback=self.on_result)
+        # 回调报错？  and 没有验证用户密码的结果
+        login_t.apply_async()
         # res = yield tornado.gen.Task(tasks.sleep.apply_async, args=[self.application.db])
-        self.write("username %s " % 123)
+        self.write("success! " )
         self.finish()
 
     def on_result(self, response):
@@ -37,7 +39,7 @@ class SleepHandler(tornado.web.RequestHandler):
 class CustomApplication(tornado.web.Application):
     def __init__(self):
         handles = [
-            (r"/sleep", SleepHandler),
+            (r"/login", SleepHandler),
             (r'/hello',hello),
         ]
         super(CustomApplication, self).__init__(handles)
@@ -46,5 +48,5 @@ class CustomApplication(tornado.web.Application):
 
 if __name__ == "__main__":
     http_server = tornado.httpserver.HTTPServer(CustomApplication())
-    http_server.listen(8888)
+    http_server.listen(8080)
     tornado.ioloop.IOLoop.instance().start()
