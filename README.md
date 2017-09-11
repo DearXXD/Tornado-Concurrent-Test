@@ -4,3 +4,4 @@ test which method is better for concurrent in tornado
 + 其中还有问题解决ing
 + 减少网络IO
 + 减少数据访问次数
++ 协程
