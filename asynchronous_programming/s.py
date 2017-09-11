@@ -41,13 +41,13 @@ class CustomApplication(tornado.web.Application):
         self.db = torndb.Connection('127.0.0.1:3306', 'test_t' , user='root', password='8782')
 
 if __name__ == "__main__":
-    # http_server = tornado.httpserver.HTTPServer(CustomApplication())
-    # http_server.listen(8080)
-    # tornado.ioloop.IOLoop.instance().start()
-
-
-    sokets = tornado.netutil.bind_sockets(8080)
-    tornado.process.fork_processes(0)
     http_server = tornado.httpserver.HTTPServer(CustomApplication())
-    http_server.add_sockets(sokets)
+    http_server.listen(8080)
     tornado.ioloop.IOLoop.instance().start()
+
+
+    # sokets = tornado.netutil.bind_sockets(8080)
+    # tornado.process.fork_processes(0)
+    # http_server = tornado.httpserver.HTTPServer(CustomApplication())
+    # http_server.add_sockets(sokets)
+    # tornado.ioloop.IOLoop.instance().start()
