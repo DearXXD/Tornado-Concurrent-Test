@@ -6,12 +6,13 @@ test which method is better for concurrent in tornado
 + 多进程
 + 多进程+协程 
 + 减少网络IO
-+ 减少数据访问次数，建索引
++ 减少数据访问次数，建索引（1.celery处理数据库查询 2.建立缓存，查询过的进入缓存，减少数据库查询次数）
 
 ### 疑惑
 + tornado异步编码方式（用@tornado.web.asynchronous，@tornado.gen.coroutine） 比 不用(@tornado.web.asynchronous，@tornado.gen.coroutine) 慢? 使用方式不对？ 待排查？
 + 使用 gevent+ tornado（多进程 + 协程 ）性能没有提升？
-+ 使用异步 @tornado.web.asynchronous or 协程 @tornado.gen.coroutine 方式， mysql出错（Commands out of sync; you can't run this command now， mysql连接？）
++ mysql问题。使用异步 @tornado.web.asynchronous or 协程 @tornado.gen.coroutine 方式， mysql出错（Commands out of sync; you can't run this command now， mysql连接？）
++ 使用字典作为缓存，反而更低？
 
 ### 其他
 
